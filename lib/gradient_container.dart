@@ -5,7 +5,10 @@ var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
 
 class GradientContiner extends StatelessWidget {
-  const GradientContiner({key}) : super(key: key);
+  const GradientContiner({key, required this.colors}) : super(key: key);
+
+  final List<Color> colors;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,6 +18,6 @@ class GradientContiner extends StatelessWidget {
               begin: startAlignment,
               end: endAlignment),
         ),
-        child: const StyledText());
+        child: const StyledText('Hello World'));
   }
 }
