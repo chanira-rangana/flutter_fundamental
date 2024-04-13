@@ -5,19 +5,34 @@ var startAlignment = Alignment.topLeft;
 var endAlignment = Alignment.bottomRight;
 
 class GradientContiner extends StatelessWidget {
-  const GradientContiner({key, required this.colors}) : super(key: key);
+  // const GradientContiner(this.color1, this.color2, {key}) : super(key: key);
+  const GradientContiner(this.color1, this.color2, {super.key});
 
-  final List<Color> colors;
+  //multiple constructor
+  const GradientContiner.purple({super.key})
+      : color1 = Colors.deepPurple,
+        color2 = Colors.indigo;
+
+  // final List<Color> colors;
+  final Color color1;
+  final Color color2;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-              colors: const [Color.fromRGBO(255, 26, 2, 80), Colors.white],
-              begin: startAlignment,
-              end: endAlignment),
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [color1, color2],
+          begin: startAlignment,
+          end: endAlignment,
         ),
-        child: const StyledText('Hello World'));
+      ),
+      child: Center(
+        child: Image.asset(
+          'assets/images/dice-2.png',
+          width: 200,
+        ),
+      ),
+    );
   }
 }
